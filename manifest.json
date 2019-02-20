@@ -1,0 +1,60 @@
+{
+    "name": "My simple JIRA KPI generator",
+    "version": "0.7",
+    "author": "Adrian Breazu",
+    "description": "Simple JIRA KPIs generator",
+    "access": "connect/credentials.json",
+    "data_storage_path": "data",
+    "extract_for": {
+        "first_project_name": {
+            "settings": {
+                "_comment": "if multiple projects are used, please make sure the main one is first",
+                "project_code": ["PROJECT_KEY"],
+                "special_filters": ["component = EG_DELETE_IF_NOT_USED", "issuetype in standardIssueTypes()"],
+                "regex_version": "^EMPTY_IF_NOT_USED"
+            },
+            "kpis": {
+                "on_time_delivery": {
+                    "agregated_velocity": "false",
+                    "cycle_time": "false",
+                    "predictibility_score": "false"
+                },
+                "solution_quality": {
+                    "open_vs_closed": "false",
+                    "defect_trend": "false",
+                    "average_bug_time": "false",
+                    "reopened_bugs": "false",
+                    "bugs_found_per_release": "false"
+                },
+                "scope_quality": {
+                    "backlog_evolution": "false"
+                }
+            }
+        },
+        "second_project_name": {
+            "settings": {
+                "_comment": "if multiple projects code are used, please make sure the main one is first",
+                "project_code": ["KEY1", "KEY2"],
+                "special_filters": ["issuetype in standardIssueTypes()"],
+                "regex_version": "^EMPTY_IF_NOT_USED"
+            },
+            "kpis": {
+                "on_time_delivery": {
+                    "agregated_velocity": "true",
+                    "cycle_time": "false",
+                    "predictibility_score": "false"
+                },
+                "solution_quality": {
+                    "open_vs_closed": "false",
+                    "defect_trend": "false",
+                    "average_bug_time": "false",
+                    "reopened_bugs": "false",
+                    "bugs_found_per_release": "false"
+                },
+                "scope_quality": {
+                    "backlog_evolution": "false"
+                }
+            }
+        }
+    }
+}
