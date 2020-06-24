@@ -1,19 +1,25 @@
 {
-    "name": "My simple JIRA KPI generator",
-    "version": "0.7",
+    "name": "My simple Agility score generator from JIRA",
+    "version": "0.8",
     "author": "Adrian Breazu",
-    "description": "Simple JIRA KPIs generator",
-    "access": "connect/credentials.json",
-    "data_storage_path": "data",
+    "description": "Simple agility score generator using JIRA data extracted automatically",
+    "access": "json/connect/credentials.json",
+    "mapper": "json/connect/fields.json",
+    "database": "db/jira.db",
     "extract_for": {
         "first_project_name": {
             "settings": {
-                "_comment": "if multiple projects are used, please make sure the main one is first",
-                "project_code": ["PROJECT_KEY"],
-                "special_filters": ["component = EG_DELETE_IF_NOT_USED", "issuetype in standardIssueTypes()"],
-                "regex_version": "^EMPTY_IF_NOT_USED"
+                "_comment": "if multiple projects are used, please make sure the main one is first. If regex_version is empty it will include all versions, even the empty one",
+                "project_code": ["ABC"],
+                "special_filters": ["issuetype in standardIssueTypes()"],
+                "regex_version": ""
             },
             "kpis": {
+                "commnent": "WIP: by setting true or false the following metrics will be generated",
+                "scope": {
+                    "epic_changes": "false",
+                    "backlog_evolution": "false"
+                },
                 "on_time_delivery": {
                     "agregated_velocity": "false",
                     "cycle_time": "false",
@@ -25,9 +31,6 @@
                     "average_bug_time": "false",
                     "reopened_bugs": "false",
                     "bugs_found_per_release": "false"
-                },
-                "scope_quality": {
-                    "backlog_evolution": "false"
                 }
             }
         },
@@ -35,12 +38,17 @@
             "settings": {
                 "_comment": "if multiple projects code are used, please make sure the main one is first",
                 "project_code": ["KEY1", "KEY2"],
-                "special_filters": ["issuetype in standardIssueTypes()"],
+                "special_filters": ["component = EG_DELETE_IF_NOT_USED", "issuetype in standardIssueTypes()"],
                 "regex_version": "^EMPTY_IF_NOT_USED"
             },
             "kpis": {
+                "commnent": "WIP: by setting true or false the following metrics will be generated",
+                "scope": {
+                    "epic_changes": "false",
+                    "backlog_evolution": "false"
+                },
                 "on_time_delivery": {
-                    "agregated_velocity": "true",
+                    "agregated_velocity": "false",
                     "cycle_time": "false",
                     "predictibility_score": "false"
                 },
@@ -50,9 +58,6 @@
                     "average_bug_time": "false",
                     "reopened_bugs": "false",
                     "bugs_found_per_release": "false"
-                },
-                "scope_quality": {
-                    "backlog_evolution": "false"
                 }
             }
         }

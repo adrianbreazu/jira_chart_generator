@@ -1,0 +1,31 @@
+{
+    "main_commnent": "please populate the Issue Keys with values as extracted by Jira plugin, read the python jira library documentation in case you have questions",
+    "additional_comment": "please add [] at the end of the Value field of the Issue dictionary if you expect the filed to be an array and are interested in a comma separated string to be created",
+    "additional_comment_2": "you can add new fields that are of interest and should be saved in the table issue, without the need to alter the code",
+    "issue": {
+        "key": "key",
+        "summary": "fields.summary",
+        "labels": "fields.labels",
+        "created_date": "fields.created",
+        "updated_date": "fields.updated",
+        "resolution_date": "fields.resolutiondate",
+        "epic_name": "fields.customfield_10011",
+        "start_date": "fields.customfield_1071",
+        "due_date": "fields.customfield_10602",
+        "priority": "fields.priority.name",
+        "assignee": "fields.assignee.displayName",
+        "reporter": "fields.reporter.displayName",
+        "components": "fields.components.name[]",
+        "epic_links": "fields.customfield_10014",
+        "tshirt_size": "fields.customfield_10502",
+        "story_points": "fields.customfield_10005",
+        "fix_version": "fields.fixVersions.name[]",
+        "affects_version": "fields.affectedVersions.name[]",
+        "resolution": "fields.resolution.name",
+        "status": "fields.status.name",
+        "type": "fields.issuetype.name",
+        "sprints": "fields.customfield_10021",
+        "project_code": "fields.project.key",
+        "linked_theme": "fields.customfield_10806"
+    }
+}
